@@ -49,7 +49,7 @@ The prompt is an input mechansim where you place your question or request, as we
 
 The completion mechanism is ChatGPT’s response to your prompt.  It answers your question or request.  Importantly, it contains a parameter called “temperature,” which controls how creative ChatGPT should be in responding to a prompt.  A lower temperature means ChatGPT should be conservative, sticking to the most factual information.  But there are times when you might be looking for more creativity (e.g., writing a short story) where using a higher temperature might make sense. 
 
-## Domain-Specific Uses: Several Technical Approaches
+## Domain-Specific Uses: Technical Approaches
 There are essentialy three ways to interact with ChatGPT for domain-specific purposes:
 1. Use as is:  The first approach is to simply use ChatGPT as is.  For example, ChatGPT has well-honed classification capabilities, and it may not benefit much from domain-specific examples.  If you want to use ChatGPT to rate sentiments in hotel or restaurant reviews from the internet, its inherent capabilities should work fine. 
 
