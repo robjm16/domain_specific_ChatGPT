@@ -1,53 +1,53 @@
 # Leveraging ChatGPT for <br> Business and Organizational Purposes    
 
-Since its introduction in November 2022, the ChatGPT chatbot has captivated the public with its ability to answer questions on virtually any topic in human-like fashion.  It can compose poems in a matter of seconds and write computer code based on natural language instructions, and a lot more.  
+Since its introduction in November 2022, the ChatGPT chatbot has captivated the world with its ability to answer questions on virtually any subject in human-like fashion.  Not to mention its ability to compose poems in a matter of seconds. Or write computer code based on natural-language instructions.  
 
-ChatGPT will no doubt have a huge impact on the public – as well as on businesses and other organizations.
+ChatGPT will no doubt have a huge impact on the public – as well as on businesses and other institutions.
 
 For organizations, the trick will be to leverage ChatGPT's awesome generalist powers across specific domain areas, such as an industry or corporate function.
 
-An insurance company, for example, might customize  ChatGPT's answers to information in its policy documents. The answers could be used internally to train and inform service reps, as well as with customers directly via a website chatbox. 
+An insurance company, for example, might customize  ChatGPT's answers to information in its policy documents. The answers could be used internally to train and inform service reps, as well as with customers directly via a website chatbox. No more wasted time digging for information.
 
-Industries and functions that are knowledge- or service-intensive will benefit most from ChatGPT’s powers – for example, healthcare, education, professional services, IT, marketing and sales.   
+Knowledge- and service-intensive industries and functions will benefit most from ChatGPT’s powers – think healthcare, education, professional services, IT, marketing and sales.   
 
-ChatGPT has the potential to enable businesses and other institutions more efficiently and effectively operate and interact with customers.
+Simply put, ChatGPT has the potential to enable organizations to dramatically improve how they operate and interact with customers.
 
 ## Building Domain-Specific Capabilities
 Developed by OpenAI, a research company partially owned by Microsoft, ChatGPT was "trained" on a massive trove of text data on the internet up through 2021 -- some 300 billion words from web pages, books and other documents. 
 
 Due to the training cut off, ChatGPT knows all about, say, John F. Kennedy, but it knows nothing about events that occurred in 2022 and later. Nor does it know anything about company and organization documents that were not available to it in its training. 
 
-But through an API (Application Programming Interface, which lets different computer programs talk with each other), ChatGPT can process and incorporate new information in real-time. This feature enables it to stay up-to-date with the latest developments or specific knowledge in a particular industry or field.
+But through an API (Application Programming Interface, which lets different computer programs talk with each other), ChatGPT can process and incorporate new information in real-time. This feature enables it to stay up-to-date with the latest developments or specific knowledge in an industry or field.
 
-To demonstrate how this might work, I built a domain-specific chatbox (here)[]. In my example, I took the 2023 investment outlook summaries posted to the web  by Morgan Stanley [(here)]([https://colab.research.google.com/drive/1iuAQSuSJarzafsWfDOrU8LnPa7f89DPo#scrollTo=r53QnNidiGf9&line=22&uniqifier=1]), JPMorgan [(here)](https://www.jpmorgan.com/insights/research/market-outlook) and Goldman Sachs [(here)](https://www.goldmansachs.com/insights/pages/gs-research/macro-outlook-2023-this-cycle-is-different/report.pdf) and combined them into one 4,000 word document. (Note: Most of the my code was adapted from OpenAI's [cookbook](https://github.com/openai/openai-cookbook) of code examples for leveraging the ChatGPT model.)
+To demonstrate how this might work, I built a domain-specific chatbox (here)[]. In my example, I took the 2023 investment outlook summaries posted to the web  by Morgan Stanley [(here)](https://www.morganstanley.com/ideas/global-investment-strategy-outlook-2023), JPMorgan [(here)](https://www.jpmorgan.com/insights/research/market-outlook) and Goldman Sachs [(here)](https://www.goldmansachs.com/insights/pages/gs-research/macro-outlook-2023-this-cycle-is-different/report.pdf) and combined them into one 4,000 word document. (Note: Most of the my code was adapted from OpenAI's [cookbook](https://github.com/openai/openai-cookbook) of code examples for leveraging the ChatGPT model.)
 
-Through a process described in more detail below, the outlook information was fed into ChatGPT and became the basis for responses to questions such as: "What does Goldman see happening with inflation in 2023?" and "What is the outlook for the bond market?"
+Through a process described in more detail below, the investment outlook information was fed into ChatGPT and became the basis for responses to questions such as: "What does Goldman see happening with inflation in 2023?" and "What is the outlook for the bond market?"
 
 Below is an overview of what I found out about ChatGPT,  written for both technical and general audiences. 
 
 (And, by the way, GPT stands for “Generative Pre-trained Transformer,” a technical reference to the AI model.)
 
 ## ChatGPT’s Many Uses 
-ChatGPT’s capabilities go well beyond what a traditional chatbox offers: 
+ChatGPT’s capabilities go well beyond what traditional chatboxes offer: 
 - It can be used to draft copy for marketing materials, blog posts and product descriptions. 
-- It can edit, summarize or translate a document, and write in almost any voice (e.g., as a pirate).  
+- It can edit, summarize or translate any text, and write in almost any voice (e.g., as a pirate).  
 - It can be used for text classification – for example, whether tweets about my organization are positive or negative last week.      
-- It can search documents via “semantic search,” which understands the broader intent of your search query, not just the exact words. 
+- It can search documents via “semantic search,” which captures the broader intent of your search query, not just the exact words. 
 
 On the computer coding side: 
 - It can convert written instructions into computer code.
 - It can auto-complete code.
 - It can explain and document your code. 
 - It can write test cases and fix bugs.
-- It can convert between coding languages (e.g., Java to Python)  
+- It can convert between coding languages (e.g., Java to Python). 
    
 
 ## Two Key Mechanisms: Prompt and Completion 
-When interacting with ChatGPT, either through a simple web interface or through computer code via an API, the prompt and completion mechansims are key.
+When interacting with ChatGPT, either through a simple web interface or through computer code via the API, the prompt and completion mechansims are key.
 
-The prompt is an input mechansim where you place your question or request, as well as any context, including domain-specific content (e.g., the 2023 investment outlooks) and instructions (e.g., organize any response in a particular format).
+The prompt is an input mechansim where you place your question or request, as well as any context, including domain-specific content (e.g., the 2023 investment outlooks). 
 
-The completion mechanism is ChatGPT’s response to your prompt.  It answers your question or request.  Importantly, it contains a parameter called “temperature,” which controls how creative ChatGPT should be in responding to a prompt.  A lower temperature means ChatGPT should be conservative, sticking to the most factual information.  But there are times when you might be looking for more creativity (e.g., writing a short story) and using a higher temperature makes sense. 
+The completion mechanism is ChatGPT’s response to your prompt.  It answers your question or request.  Importantly, it contains a parameter called “temperature,” which controls how creative ChatGPT should be in responding to a prompt.  A lower temperature means ChatGPT should be conservative, sticking to the most factual information.  But there are times when you might be looking for more creativity (e.g., writing a short story) where using a higher temperature might make sense. 
 
 ## Domain-Specific Uses: Several Technical Approaches
 There are essentialy three ways to interact with ChatGPT for domain-specific purposes:
@@ -61,16 +61,16 @@ There are essentialy three ways to interact with ChatGPT for domain-specific pur
 
     The newest model (GPT3) can only be accessed via the OpenAI API.  You can “fine tune” it on up to 100 specific pieces of content and save a proprietary version of it (at OpenAI) for future use via the API.  But you cannot fundamentally retrain it.   
 
-    Instead, similar to the second approach above, you create a new version and then feed it up to 100 domain-specific pieces of content.  The model will then run in the background at OpenAI, seeking to maximize correct answers. Many of the model’s parameters (see discussion of neural networks below) will be updated, but that is done in the background.  When complete, it creates a new version, with a new name you give it. 
+    Instead, similar to the second approach above, you create a new version and then feed it up to 100 domain-specific pieces of content.  The model will then run in the background at OpenAI, seeking to maximize correct answers. Many of the model’s parameters will be updated (see discussion of neural networks below), but that is done in the background.  When complete, it creates a new version, with a new name you give it. 
 
 The key difference between the second and third approaches above is that the second injects the domain- specific content in real time into the prompt whereas approach three tailors the model to your needs and produces a reusable customized model, with potentially more accurate results.  With approach two, the base model is used unchanged and the model retains no "memory" of the injected content, outside of the current session.  
 
 ## Word Embeddings: 4,000 Shades of Meaning 
-When ChatGPT receives a question, it maps each word or word fragment to a token, a unique numerical identifier.  With ChatGPT, each token represents approximately 0.75 words.  (The math is important due to free usage limits and potential extra fees from using ChatGPT.)
+When ChatGPT receives a question, it maps each word or word fragment to a token, a unique numerical identifier.  With ChatGPT, each token represents approximately 0.75 words.  (The math is important due to usage limits on ChatGPT.)
 
 Each token also has a numerical representation of the word or word fragment called an "embedding." For example, the word "queen" can be represented by a series of numerical sequences capturing how close the word is semantically to words such as "king," "female” and “leader."  The embedding also captures syntax and context, such as a speaker’s intent.  
 
-In ChatGPT's case, eached each word has 4,096 data points or dimensions associated with it. In addition, ChatGPT's artifical intelligence model -- a deep neural network -- pays attention to words that come before and after, so it holds on to context as it "reads in" new words.  More on the neural network below.##  
+In ChatGPT's case, eached each word has 4,096 data points or dimensions associated with it. In addition, ChatGPT's artifical intelligence model -- a deep neural network -- pays attention to words that come before and after, so it holds on to context as it "reads in" new words. 
 
 The embedding for the fourth token in a text might look like this: 
 (4, [0.016102489084005356, -0.011134202592074871, …, 0.01891878806054592])
@@ -85,16 +85,16 @@ The lines between the nodes (the synapses in the brain), receive a mathematical 
   
 The ChatGPT model has 175 billion potential line weightings or parameters, but not all of them “fire” depending on the prompt.  By contrast, GPT2 has 1.5  billion parameters. For further reference, the human brain is believed to have up to 100 trillion synsapses. 
 
-The ChatGPT’ model also has an “attention” mechanism that allows it to differentially weigh the importance of different parts of the input text, leading to a more coherent and fluent response.  
+The ChatGPT model also has an “attention” mechanism that allows it to differentially weight the importance of different parts of the input text, leading to a more coherent and fluent response.  
 
-In addition, the ChatGPT model was trained on how actual human beings rated  answers, helping to make responses not just correct but more human friendly.  
+In addition, the ChatGPT model was partially trained on how actual human beings rated answers, helping to make responses not just correct but more human friendly.  
 
 ## ChatGPT in Action:  My Bank Example 
-The first step in leverage ChatGPT on domain-specific content is to gather the content and pre-process as needed.
+The first step in leveraging ChatGPT on domain-specific content is to gather the content and pre-process as needed.
 
 The ChatGPT API has limits on the amount of work it will do for free. Accordingly, I limited my example to about 4,000 words containing the three banks' investment outlooks. I further arranged the content into about 30 paragraphs.
 
-There is a limit of 2,048 tokens – or about 1,500 words – for both the prompt and completion (you can pay for higher limits).  While my document is 4,00 words, only the most relevant sections are fed into the prompt, thus keeping below the token limit.  
+There is a limit of 2,048 tokens – or about 1,500 words – for both the prompt and completion.  While my document is 4,000 words, only the most relevant sections are fed into the prompt, thus keeping below the token limit.  
 
 The document’s 30 paragraphs are first sent out to the ChatGPT API to get word embeddings. When a question is asked, that question also gets its respective embeddings via the API.
 
@@ -102,14 +102,14 @@ Next, computer code on my machine compares the question to the content in the 30
 
 The best paragaphs are then attached to the question as "context" and fed back to ChatGPT for an answer. My program also instructs ChatGPT to say, "Sorry, I don't know," if it is asked a question where it does not have good information. (ChatGPT can be overly confident and completely wrong,  but there are ways to control for this.)
 
-Lastly, ChatGPt combines the question, the added domain content and the model's inherent natural language skills to produce a response.
+Lastly, ChatGPT combines the question, the added domain content and the model's inherent natural language skills to produce a response.
 
 Below is an example of a question within the interface:
 
 ![image](https://github.com/robjm16/domain_specific_ChatGPT/blob/main/interface_example.png?raw=true)
  
 ## The ChatGPT Ecosystem 
-OpenAI was founded in 2015 by a group including Elon Musk, and, as mentioned earlier, Microsoft as a key partner and investor.  
+OpenAI was founded in 2015 by a group including Elon Musk, with Microsoft as a key partner and investor.  
 
 Microsoft plans to integrate ChatGPT with many of its offerings.  For example, it could be incorporated into Microsoft Word and PowerPoint apps for writing, summarization and editing purposes.  It could be used to augment Microsoft’s Bing search engine, providing direct answers to questions along with site links based on a more semantic search engine. ChatGPT’s coding assistance abilities could be integrated with Microsoft’s Visual Studio code editing product.  Microsoft already has Github Copilot, a code auto-completion tool, and some coders are already using Copilot and GPT3 in tandem to improve their productivity.  Lastly,  Micorosoft Azure’s cloud computing services could leverage GPT3 into its AI capabilities – for example, for large companies seeking to retrain ChatGPT on domain-specific content. 
 
