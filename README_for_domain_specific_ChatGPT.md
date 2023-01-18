@@ -19,19 +19,19 @@ Due to the training cut off, ChatGPT knows all about, say, John F. Kennedy, but 
 
 But through an API (Application Programming Interface, which lets different computer programs talk with each other), ChatGPT can process and incorporate new information in real-time. This feature enables it to stay up-to-date with the latest developments or specific knowledge in an industry or field.
 
-To demonstrate how this might work, I built a domain-specific chatbox (here)[]. In my example, I took the 2023 investment outlook summaries posted to the web  by Morgan Stanley [(here)](https://www.morganstanley.com/ideas/global-investment-strategy-outlook-2023), JPMorgan [(here)](https://www.jpmorgan.com/insights/research/market-outlook) and Goldman Sachs [(here)](https://www.goldmansachs.com/insights/pages/gs-research/macro-outlook-2023-this-cycle-is-different/report.pdf) and combined them into one 4,000 word document. (Note: Most of the my code was adapted from OpenAI's [cookbook](https://github.com/openai/openai-cookbook) of code examples for leveraging the ChatGPT model.)
+To demonstrate how this might work, I built a domain-specific chatbox (here)[]. In my example, I took the 2023 investment outlook summaries posted to the web  by Morgan Stanley [(here)](https://www.morganstanley.com/ideas/global-investment-strategy-outlook-2023), JPMorgan [(here)](https://www.jpmorgan.com/insights/research/market-outlook) and Goldman Sachs [(here)](https://www.goldmansachs.com/insights/pages/gs-research/macro-outlook-2023-this-cycle-is-different/report.pdf) and combined them into one 4,000 word document. (Note: Most of the my code was adapted from OpenAI's [cookbook](https://github.com/openai/openai-cookbook) of code examples for working with ChatGPT.)
 
 Through a process described in more detail below, the investment outlook information was fed into ChatGPT and became the basis for responses to questions such as: "What does Goldman see happening with inflation in 2023?" and "What is the outlook for the bond market?"
 
-Below is an overview of what I found out about ChatGPT,  written for both technical and general audiences. 
+Below is an overview of what I discovered through the development process, written for both technical and general audiences. 
 
-(And, by the way, GPT stands for “Generative Pre-trained Transformer,” a technical reference to the AI model.)
+(By the way, GPT stands for “Generative Pre-trained Transformer,” a technical reference to the AI model.)
 
 ## ChatGPT’s Many Uses 
 ChatGPT’s capabilities go well beyond what traditional chatboxes offer: 
 - It can be used to draft copy for marketing materials, blog posts and product descriptions. 
 - It can edit, summarize or translate any text, and write in almost any voice (e.g., as a pirate).  
-- It can be used for text classification – for example, whether tweets about my organization are positive or negative last week.      
+- It can be used for text classification – for example, whether tweets about my organization were positive or negative last week.      
 - It can search documents via “semantic search,” which captures the broader intent of your search query, not just the exact words. 
 
 On the computer coding side: 
@@ -53,30 +53,27 @@ The completion mechanism is ChatGPT’s response to your prompt.  It answers you
 There are essentialy three ways to interact with ChatGPT for domain-specific purposes:
 1. Use as is:  The first approach is to simply use ChatGPT as is.  For example, ChatGPT has well-honed classification capabilities, and it may not benefit much from domain-specific examples.  If you want to use ChatGPT to rate sentiments in hotel or restaurant reviews from the internet, its inherent capabilities should work fine. 
 
-2. Inject content into prompts: The second approach, which I took in my demo example, is to inject domain-specific context into your prompt.  In this  scenario, ChatGPT uses its well-practiced natural language capabilities, but then looks to the specific content when formulating an answer.
+2. Inject content into prompts: The second approach, which I took in my demo example, is to inject domain-specific context into your prompt.  In this  scenario, ChatGPT uses its well-practiced natural language capabilities, but then looks to your specific content when formulating an answer.
 
     This approach and the next use a technique known as “in-context” learning.  Either way, it’s important to note that the GPT3 model is not “retrained” in the traditional machine learning sense.  Instead, it makes predictions based on the supplied context. 
 
 3. Fine tune a model:  Currently, only the previous and less powerful version of ChatGPT’s neural network model (GPT2) is available for download and use in your own environment.  With GPT2 and many other pre-trained libraries, you can go in and change fundamental aspects of the model, including its shape and size, and retrain it on your domain-specific content.  
 
-    The newest model (GPT3) can only be accessed via the OpenAI API.  You can “fine tune” it on up to 100 specific pieces of content and save a proprietary version of it (at OpenAI) for future use via the API.  But you cannot fundamentally retrain it.   
+    The newest model (GPT3) can only be accessed via the OpenAI API.  You can “fine tune” it on your content and save a proprietary version of it (at OpenAI) for future use via the API.  But you cannot fundamentally retrain it.   
 
-    Instead, similar to the second approach above, you create a new version and then feed it up to 100 domain-specific pieces of content.  The model will then run in the background at OpenAI, seeking to maximize correct answers. Many of the model’s parameters will be updated (see discussion of neural networks below), but that is done in the background.  When complete, it creates a new version, with a new name you give it. 
+    Instead, you create a new version and feed it up to 100 domain-specific pieces of content.  The model will run in the background at OpenAI, seeking to maximize correct answers by updating some of the model’s parameters (see discussion of neural networks below).  When complete, it creates a new version, with a new name you give it. 
 
-The key difference between the second and third approaches above is that the second injects the domain- specific content in real time into the prompt whereas approach three tailors the model to your needs and produces a reusable customized model, with potentially more accurate results.  With approach two, the base model is used unchanged and the model retains no "memory" of the injected content, outside of the current session.  
+The key difference between the second and third approaches is that the second injects the domain- specific content in real time into the prompt whereas approach three tailors the model to your needs and produces a reusable customized model, with potentially more accurate results.  With approach two, the base model is used unchanged and the model retains no "memory" of the injected content, outside of the current session.  
 
 ## Word Embeddings: 4,000 Shades of Meaning 
 When ChatGPT receives a question, it maps each word or word fragment to a token, a unique numerical identifier.  With ChatGPT, each token represents approximately 0.75 words.  (The math is important due to usage limits on ChatGPT.)
 
-Each token also has a numerical representation of the word or word fragment called an "embedding." For example, the word "queen" can be represented by a series of numerical sequences capturing how close the word is semantically to words such as "king," "female” and “leader."  The embedding also captures syntax and context, such as a speaker’s intent.  
+Each token also has a numerical representation of the word or word fragment called an "embedding." For example, the word "queen" can be represented by a series of numerical sequences capturing how close the word is semantically to words such as "king," "female” and “leader."  The embedding also captures syntax and context.  The actual embedding for a token in the text might look like this: [0.016102489084005356, -0.011134202592074871, …, 0.01891878806054592].  
 
 In ChatGPT's case, eached each word has 4,096 data points or dimensions associated with it. In addition, ChatGPT's artifical intelligence model -- a deep neural network -- pays attention to words that come before and after, so it holds on to context as it "reads in" new words. 
 
-The embedding for the fourth token in a text might look like this: 
-(4, [0.016102489084005356, -0.011134202592074871, …, 0.01891878806054592])
-
 ## GPT3: One of World’s Largest Neural Networks 
-Neural networks are often described as brain-like, with “nodes” and connections called “synapses.” In the simple example below, the first layer going left to right takes in input (such as the embeddings of a question) and the far right layer is the output (the answer or response).  In between, the input goes through many layers and nodes, depending on the complexity of the model.  This part is “hidden” in that what each node represents is not easily discernable.  
+Neural networks are often described as brain-like, with “nodes” and connections called “synapses.” In the simple example below, the far left layer takes in input (such as the embeddings of a question) and the far right layer is the output (the answer or response).  In between, the input goes through many layers and nodes, depending on the complexity of the model.  This part is “hidden” in that what each node represents is not easily discernable.  
 
 The lines between the nodes (the synapses in the brain), receive a mathematical weighting that maximizes the chances that the output or response is correct.  These weightings are called parameters.   
 
@@ -100,7 +97,7 @@ The document’s 30 paragraphs are first sent out to the ChatGPT API to get word
 
 Next, computer code on my machine compares the question to the content in the 30 paragraphs. It then picks the best-fit paragraphs based on how close the question is semantically to each paragraph (by doing a lot of math around their respective embeddings).
 
-The best paragaphs are then attached to the question as "context" and fed back to ChatGPT for an answer. My program also instructs ChatGPT to say, "Sorry, I don't know," if it is asked a question where it does not have good information. (ChatGPT can be overly confident and completely wrong,  but there are ways to control for this.)
+The best paragaphs are then attached to the question as "context" and fed back to ChatGPT for an answer. My program also instructs ChatGPT to say, "Sorry, I don't know," if it is asked a question where it does not have good information. 
 
 Lastly, ChatGPT combines the question, the added domain content and the model's inherent natural language skills to produce a response.
 
@@ -109,20 +106,21 @@ Below is an example of a question within the interface:
 ![image](https://github.com/robjm16/domain_specific_ChatGPT/blob/main/interface_example.png?raw=true)
  
 ## The ChatGPT Ecosystem 
-OpenAI was founded in 2015 by a group including Elon Musk, with Microsoft as a key partner and investor.  
+OpenAI was founded in 2015 by a group that includes Elon Musk.  As mentioned earlier, Microsoft is an investor and key partner.  
 
-Microsoft plans to integrate ChatGPT with many of its offerings.  For example, it could be incorporated into Microsoft Word and PowerPoint apps for writing, summarization and editing purposes.  It could be used to augment Microsoft’s Bing search engine, providing direct answers to questions along with site links based on a more semantic search engine. ChatGPT’s coding assistance abilities could be integrated with Microsoft’s Visual Studio code editing product.  Microsoft already has Github Copilot, a code auto-completion tool, and some coders are already using Copilot and GPT3 in tandem to improve their productivity.  Lastly,  Micorosoft Azure’s cloud computing services could leverage GPT3 into its AI capabilities – for example, for large companies seeking to retrain ChatGPT on domain-specific content. 
+Microsoft plans to integrate ChatGPT with many of its offerings.  For example, it could be incorporated into the Microsoft Word and PowerPoint apps for writing, summarization and editing purposes.  It could be used to augment Microsoft’s Bing search engine, providing direct answers to questions along with site links based on a more semantic search engine. ChatGPT’s coding assistance abilities could be integrated with Microsoft’s Visual Studio code editing product.  Microsoft already has Github Copilot, a code auto-completion tool, and some coders are already using Copilot and GPT3 in tandem to improve their productivity.  Lastly,  Micorosoft Azure’s cloud computing services are already incorporating GPT3 -- for example, helping large companies fine-tune ChatGPT on domain-specific content. 
 
-The other large cloud providers – Google and Amazon Web Services (AWS) – will no doubt integrate GPT3 into their AI offerings.  But they presumably do not have the inside track that Microsoft seems to enjoy due to its partnership with OpenAI.  Google’s CEO has  reportedly called a “code red” following the release of ChatGPT, challenging the company to quickly incorporate Google’s own ChatGPT-like models into its dominant search platform. 
+The other large cloud providers – Google and Amazon Web Services (AWS) – will no doubt aggressively integrate GPT3 into their AI offerings. Google’s CEO has reportedly called a “code red” following the release of ChatGPT, challenging the company to quickly incorporate Google’s own ChatGPT-like models into its dominant search platform. 
 
-Google, in fact, developed several of the most powerful “large language models” similar to GPT3 (which go by the names BERT, T5 and XLNet).  Other leading large language models are Facebook’s RoBERTa and Salesforce’s CTRL. 
+Google, in fact, developed several of the most powerful “large language models” similar to GPT3 (they go by the names BERT, T5 and XLNet).  Other leading large language models are Facebook’s RoBERTa and Salesforce’s CTRL. 
+
 AWS’s suite of AI services is called SageMaker.  It includes pre-built algorithms and enables companies to quickly build, train and deploy machine learning models.
 
 Another player is Hugging Face, where my demo model is hosted.  Hugging Face hosts a popular community website for sharing open-source models and for prototyping and deploying natural language processing models. The platform includes a variety of tools and services for working with natural language models, including a library of pre-trained models, a framework for training and fine-tuning models, and an API for deploying models to production.  You can access and adapt GPT2 through Hugging Face (again, GPT3 is only available through the OpenAI API.) 
 
 ## Data Security
-Each organization will have to make its own security judgments around using ChatGPT,  including hosting and encryption issues.  ChatGPT says that information provided in prompts and saved customized versions of GPT3 developed via its API would never “leak” into ChatGPT’s wider training and thus somehow be exposed in a subsequent version of GPT.  However, companies will need to properly sanitize any documents used in prompts or training, and determine how much of the work should be performed behind their local or cloud provider’s firewalls.  
+Each organization will have to make its own security judgments around using ChatGPT, including hosting and encryption issues.  ChatGPT says that information provided in prompts and saved customized versions of GPT3 developed via its API would never “leak” into ChatGPT’s wider training and thus somehow be exposed in a subsequent version of GPT.  However, companies will need to properly sanitize any documents used in prompts or fine tuning, and also determine how much of the work should be performed behind their local or cloud provider’s firewalls.  
 
-There are related issues, including changing the model’s “temperature” settings to rein in ChatGPT’s  overconfidence, depending on the nature of the information and risks involved.     
+There are related issues, including changing the model’s “temperature” settings to rein in ChatGPT’s potential overconfidence, depending on the nature of the information and risks involved.     
 
 
