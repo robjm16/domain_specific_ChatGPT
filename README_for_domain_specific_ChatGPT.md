@@ -1,16 +1,16 @@
 # Leveraging ChatGPT for <br> Business and Organizational Purposes    
 
-Since its introduction in November 2022, the ChatGPT chatbot has captivated the world with its ability to answer questions on virtually any subject in human-like fashion.  Not to mention its ability to compose poems in a matter of seconds. Or write computer code based on natural-language instructions.  
+Since its introduction in November 2022, the ChatGPT chatbot has captivated the world with its ability to answer questions on virtually any subject in conversational, human-like fashion.  Not to mention its ability to compose poems in a matter of seconds. Or to write computer code based on natural-language instructions.  
 
-ChatGPT will no doubt have a huge impact on the public – as well as on businesses and other institutions.
+ChatGPT will no doubt have a huge impact on the public -- as well as on businesses and other institutions.
 
-For organizations, the trick will be to leverage ChatGPT's awesome generalist powers across specific domain areas, such as an industry or corporate function.
+For organizations, the trick will be to leverage ChatGPT's awesome generalist powers across specific domain areas, such as industries or corporate functions.
 
 An insurance company, for example, might customize  ChatGPT's answers to information in its policy documents. The answers could be used internally to train and inform service reps, as well as with customers directly via a website chatbox. No more wasted time digging for information.
 
-Knowledge- and service-intensive industries and functions will benefit most from ChatGPT’s powers – think healthcare, education, professional services, IT, marketing and sales.   
+Industries and functions that are knowledge- and service-intensive will benefit most from ChatGPT’s powers -- think healthcare, education, professional services, IT, marketing and sales.   
 
-Simply put, ChatGPT has the potential to enable organizations to dramatically improve how they operate and interact with customers.
+Simply put, ChatGPT might enable organizations to dramatically improve how they operate and interact with customers.
 
 ## Building Domain-Specific Capabilities
 Developed by OpenAI, a research company partially owned by Microsoft, ChatGPT was "trained" on a massive trove of text data on the internet up through 2021 -- some 300 billion words from web pages, books and other documents. 
