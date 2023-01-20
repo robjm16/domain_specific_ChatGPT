@@ -56,11 +56,11 @@ There are essentially three ways to interact with ChatGPT for domain-specific pu
 2. Inject content into prompts: The second approach, which I took in my demo example, is to inject domain-specific context into your prompt.  In this  scenario, ChatGPT uses its well-practiced natural language capabilities, but then looks to your specific content when formulating an answer.
 
       
-3. Fine-tune a model:  Currently, only the previous and less powerful version of ChatGPT’s neural network model (GPT2) is available to install and use in your own environment.  With GPT2 and some other pre-trained libraries, you can alter aspects of the model in a process called transfer learning, and train it on your domain-specific content.  
+3. Fine-tune a model:  Currently, only the previous and less powerful version of ChatGPT’s neural network model (GPT-2) is available to install and use in your own environment.  With GPT-2 and some other pre-trained libraries, you can alter aspects of the model in a process called transfer learning, and train it on your domain-specific content.  
 
-    The newest model (GPT3) can be accessed via the OpenAI API.  You can “fine tune” it on your content and save a new  version of it (at OpenAI) for future use via the API.  But you cannot fundamentally alter and retrain it in the traditional machine learning sense.  One reason why is the sheer size of the pre-trained model -- the time and cost of retraining would be prohibitive for virtually all users.
+    The newest model (GPT-3) can be accessed via the OpenAI API.  You can “fine tune” it on your content and save a new  version of it (at OpenAI) for future use via the API.  But you cannot fundamentally alter and retrain it in the traditional machine learning sense.  One reason why is the sheer size of the pre-trained model -- the time and cost of retraining would be prohibitive for virtually all users.
 
-    Instead, with GPT3, you create a new version of the model and feed it your domain-specific content.  The model then runs in the background, seeking to maximize correct answers by updating some of the model’s parameters (see discussion of neural networks below).  When complete, it creates a proprietary version of the model for your organization. 
+    Instead, with GPT-3, you create a new version of the model and feed it your domain-specific content.  The model then runs in the background, seeking to maximize correct answers by updating some of the model’s parameters (see discussion of neural networks below).  When complete, it creates a proprietary version of the model for your organization. 
 
 The second and third approaches above use a technique known as “in-context” learning.  The key difference between the two is that the second injects the domain- specific content in real time into the prompt whereas approach three tailors the model to your needs and produces a reusable customized model, with potentially more accurate results.  With approach two, the base model is used unchanged and the model retains no "memory" of the injected content, outside of the current session.  
 
@@ -71,7 +71,7 @@ Each token also gets a numerical representation of the word or word fragment cal
 
 In ChatGPT's case, each token has 4,096 data points or dimensions associated with it. In addition, ChatGPT's artificial intelligence model -- a deep neural network -- pays attention to words that come before and after, so it holds on to context as it "reads in" new words. 
 
-## GPT3: One of World’s Largest Neural Networks 
+## GPT-3: One of World’s Largest Neural Networks 
 Neural networks are often described as brain-like, with “neurons” and their connecting “synapses.”  In the simple example below, the far left layer takes in input (the word-derived tokens) and the far right layer is the output (the answer or response).  In between, the input goes through many layers and nodes, include the embedding, depending on the complexity of the model.  This part is “hidden” in that what each node represents is not easily discernable.  
 
 The lines between the model's nodes (similar to synapses connecting neurons in the brain), receive a mathematical weighting that maximizes the chances that the output is correct.  These weightings are called parameters.   
@@ -79,7 +79,7 @@ The lines between the model's nodes (similar to synapses connecting neurons in t
 ![image](https://github.com/robjm16/domain_specific_ChatGPT/blob/main/basic_nn.png?raw=true)  
 
   
-The ChatGPT model (GPT3) has 175 billion potential line weightings or parameters, but not all of them “fire” depending on the prompt.  By contrast, GPT2 has 1.5  billion parameters.  
+The ChatGPT model (GPT-3) has 175 billion potential line weightings or parameters, but not all of them “fire” depending on the prompt.  By contrast, GPT-2 has 1.5  billion parameters.  
 
 The ChatGPT model also has an “attention” mechanism that allows it to differentially weight the importance of different parts of the input text, leading to a more coherent and fluent response.  
 
@@ -107,19 +107,19 @@ Below is an example of a question and response within the interface:
 ## The ChatGPT Ecosystem 
 OpenAI was founded in 2015 by a group that includes Elon Musk.  As mentioned earlier, Microsoft is an investor and key partner.  
 
-Microsoft plans to incorporate ChatGPT into many of its offerings.  For example, it could be integrated with  Microsoft Word and PowerPoint, for help in writing, editing and summarization. It could be used to augment Microsoft’s Bing search engine, providing direct answers to questions along with a more semantic search engine. ChatGPT’s coding assistance abilities could be integrated with Microsoft’s Visual Studio code editing product. (Microsoft offers Github Copilot, a code auto-completion tool, and some coders are already using Copilot and GPT3 in tandem to improve their productivity.) Lastly,  Microsoft Azure’s cloud computing services are already incorporating GPT3 -- for example, helping large companies fine-tune ChatGPT on domain-specific content. 
+Microsoft plans to incorporate ChatGPT into many of its offerings.  For example, it could be integrated with  Microsoft Word and PowerPoint, for help in writing, editing and summarization. It could be used to augment Microsoft’s Bing search engine, providing direct answers to questions along with a more semantic search engine. ChatGPT’s coding assistance abilities could be integrated with Microsoft’s Visual Studio code editing product. (Microsoft offers Github Copilot, a code auto-completion tool, and some coders are already using Copilot and GPT-3 in tandem to improve their productivity.) Lastly,  Microsoft Azure’s cloud computing services are already incorporating GPT-3 -- for example, helping large companies fine-tune ChatGPT on domain-specific content. 
 
-The other large cloud providers – Google and Amazon Web Services (AWS) – will no doubt integrate GPT3 into their AI offerings, while continuing to enhance their own AI models.
+The other large cloud providers – Google and Amazon Web Services (AWS) – will no doubt integrate GPT-3 into their AI offerings, while continuing to enhance their own AI models.
 
 Google’s CEO has reportedly called a “code red” following the release of ChatGPT, challenging the company to quickly incorporate Google’s own ChatGPT-like models into its dominant search platform. 
 
-Google, in fact, developed several of the most powerful “large language models” similar to GPT3 (they go by the names BERT, T5 and XLNet). 
+Google, in fact, developed several of the most powerful “large language models” similar to GPT-3 (they go by the names BERT, T5 and XLNet). 
 
 Meta is also a key player, with Facebook’s RoBERTa model.  
 
 AWS’s suite of AI services is called SageMaker.  It includes pre-built algorithms and enables companies to quickly build, train and deploy machine learning models.
 
-Another player is Hugging Face, which hosts a popular community website for sharing open-source models and for quickly prototyping and deploying natural language processing models. The platform includes a library of pre-trained models, a framework for training and fine-tuning models, and an API for deploying models to production.  You can access and use GPT2 through Hugging Face (with GPT3 available through the OpenAI API.) 
+Another player is Hugging Face, which hosts a popular community website for sharing open-source models and for quickly prototyping and deploying natural language processing models. The platform includes a library of pre-trained models, a framework for training and fine-tuning models, and an API for deploying models to production.  You can access and use GPT-2 through Hugging Face (with GPT-3 available through the OpenAI API.) 
 
 ## Data Security
 Each organization will have to make its own security judgments around using ChatGPT, including server location, VPN, firewall,  encryption and data security issues. 
@@ -130,7 +130,7 @@ ChatGPT notes, however, that it has guidelines to guard against confidential or 
 
 The fine-tuned model is different.  OpenAI does not have access to the prompts you use to fine-tune your version of the model and thus could not use them to train the base model. 
 
-In addition, your organization can purchase GPT3 licenses for on-premises deployment or a "fully managed" enterprise solution hosted on the Microsoft Azure cloud.
+In addition, your organization can purchase GPT-3 licenses for on-premises deployment or a "fully managed" enterprise solution hosted on the Microsoft Azure cloud.
 
 Bottom line: organizations will need to think carefully about restricting or sanitizing some inputs and choosing the right fine-tuning and security arrangements.
 
