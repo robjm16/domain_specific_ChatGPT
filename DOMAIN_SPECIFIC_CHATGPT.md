@@ -139,7 +139,7 @@ For added control and security, organizations can purchase GPT-3 licenses for on
 ## Bottom line
 ChatGPT is a disruptive technology, a potential game changer. 
 
-Companies should start considering its potential benefits and use by identifying use cases.  How might these models disrupt your industry? Where can they be leveraged to dramatically improve knowledge management, customer service or functional processes?  
+Companies should start by considering its potential impact and identifying possible use cases.  How might these models disrupt your industry? Where can they be leveraged to dramatically improve knowledge management, customer service or functional processes?  
 
 Organizations can experiment with ChatGPT by developing low-risk prototypes in sandboxed environments. The process will give rise to many questions about restricting or sanitizing inputs, processing domain-specific content, dealing with limitations of the models (e.g., serving up incorrect information), fine tuning, hosting and security. 
 
