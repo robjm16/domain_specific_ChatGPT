@@ -1,6 +1,6 @@
 # Leveraging ChatGPT for <br> Business and Organizational Purposes    
 
-Since its introduction in November 2022, ChatGPT has captivated the world by answering questions on virtually any subject in human-like fashion.  Not to mention its ability to compose poems in seconds. Or write computer code based on plain language instructions.  
+Since its introduction in November 2022, ChatGPT has captivated the world by answering questions on virtually any subject in human-like fashion.  Not to mention by composing poems in seconds. Or writing computer code based on plain language instructions.  
 
 ChatGPT will no doubt have a huge impact on the public -- as well as on companies and other institutions.
 
