@@ -6,7 +6,7 @@ ChatGPT will no doubt have a huge impact on the public -- as well as on companie
 
 For organizations, the key will be to leverage ChatGPT's extraordinary powers across specific domain areas, such as industries or corporate functions.
 
-An insurance company, for example, might customize ChatGPT to answer questions on all its policy documents. The modified version could be used internally to train and inform service reps and, eventually, with customers directly via its app or website. The friction costs of getting the right information in the right format at the right time would trend to zero. 
+An insurance company, for example, might customize ChatGPT to answer questions on all its policy documents. The modified version could be used internally to train and inform service reps and, eventually, with customers directly via its app or website. The frictional costs of getting the right information in the right format at the right time would trend to zero. 
 
 Industries and functions that are knowledge-intensive (e.g., healthcare, professional services, education) and service-intensive (IT, legal, marketing and sales) will likely benefit most from ChatGPT’s powers.     
 
@@ -20,20 +20,20 @@ Due to the training cut off, ChatGPT knows little or nothing about events that o
 
 But through an API (Application Programming Interface, which lets computer programs talk with each other), organizations can incorporate new information into ChatGPT. This feature enables it to stay up-to-date with the latest developments or specific knowledge in an industry or field.
 
-To demonstrate how this might work, I built a simple domain-specific [chatbot](https://huggingface.co/spaces/robjm16/domain_specific_ChatGPT). In my example, I took the 2023 investment outlook summaries posted to the web  by Morgan Stanley [(here)](https://www.morganstanley.com/ideas/global-investment-strategy-outlook-2023), JPMorgan [(here)](https://www.jpmorgan.com/insights/research/market-outlook) and Goldman Sachs [(here)](https://www.goldmansachs.com/insights/pages/gs-research/macro-outlook-2023-this-cycle-is-different/report.pdf) and combined them into one 4,000 word document. 
+To demonstrate how this might work, I built a simple domain-specific [chatbot](https://huggingface.co/spaces/robjm16/domain_specific_ChatGPT). In my example, I took the 2023 investment outlook summaries posted to the web by Morgan Stanley [(here)](https://www.morganstanley.com/ideas/global-investment-strategy-outlook-2023), JPMorgan [(here)](https://www.jpmorgan.com/insights/research/market-outlook) and Goldman Sachs [(here)](https://www.goldmansachs.com/insights/pages/gs-research/macro-outlook-2023-this-cycle-is-different/report.pdf) and combined them into one 4,000 word document. 
 
 Through a process described more fully below, the investment outlook information was fed into ChatGPT and became the basis for responses to questions such as: "What does Goldman see happening with inflation in 2023?" and "What is the outlook for the bond market?" 
 
-Most of the [my code](https://github.com/robjm16/domain_specific_ChatGPT) was adapted from OpenAI's [cookbook](https://github.com/openai/openai-cookbook) of code examples for ChatGPT.  
+Most of the [my code](https://github.com/robjm16/domain_specific_ChatGPT) was adapted from OpenAI's [cookbook](https://github.com/openai/openai-cookbook) of code examples for working with ChatGPT.  
 
-Below is an overview of what I discovered during the development process and related research. 
+Below is an overview of what I discovered through the development process and related research. 
 
 ## ChatGPT’s Many Uses 
 ChatGPT’s capabilities go well beyond what traditional chatboxes offer: 
 - It can draft copy for marketing materials, blog posts and product descriptions. 
-- It can edit, summarize or translate any text, and write in almost any voice (e.g., promotional ad copy).  
+- It can edit, summarize or translate any text, and write in almost any voice (e.g., ad copy tone).  
 - It can be used for text classification – for example, whether tweets about your organization were positive or negative last week.      
-- It can quickly structure unstructured information, such as a doctor's diagnostic notes.  
+- It can quickly organize unstructured information, such as a doctor's diagnostic notes.  
 
 On the computer coding side: 
 - It can convert written instructions into computer code.
@@ -44,9 +44,9 @@ On the computer coding side:
 ## Two Key Mechanisms: Prompt and Completion 
 When interacting with ChatGPT, either through a web interface or through computer code via the API, the prompt and completion mechanisms are key.
 
-The prompt is an input mechanism into which you place your question or request, as well as any context, including domain-specific content and other instruction (e.g., respond in a certain format). 
+The prompt is an input mechanism into which you place your question or request, as well as any context, including domain-specific content and other instructions (e.g., respond in a certain format). 
 
-The completion mechanism is ChatGPT’s response to your prompt.  It answers your question or request.  Importantly, it contains a parameter called “temperature,” which controls how creative ChatGPT should be in responding to your prompt.  A lower temperature means ChatGPT should be conservative, sticking to the most factual information and not trying to guess if unsure. 
+The completion mechanism is ChatGPT’s response to your prompt.  It answers your question or request.  Importantly, it contains a parameter called “temperature,” which controls how creative ChatGPT should be in responding to your prompt.  A lower temperature means ChatGPT will be conservative, sticking to the most factual information and not trying to guess if unsure. 
 
 ## Domain-Specific Uses: Technical Approaches
 There are three ways to interact with ChatGPT for domain-specific purposes:
@@ -56,13 +56,13 @@ There are three ways to interact with ChatGPT for domain-specific purposes:
      
 3. Fine-tune a model:  Currently, only the previous and less powerful version of ChatGPT’s neural network model (GPT-2) is available to download and use in your own environment.  With GPT-2 and other relatively small pre-trained libraries, you can adapt the model in a process called transfer learning and train the model on your domain-specific content.  
 
-    The newest model (GPT-3) can only be accessed via the OpenAI API.  You can “fine tune” it on your content and save a new  version of it for future use.  But you cannot fundamentally modify the model and retrain it in the traditional machine learning sense. 
+    The newest model (GPT-3) can only be accessed via the OpenAI API.  You can “fine tune” it on your content and save a new version of it for future use.  But you cannot fundamentally modify the model and retrain it in the traditional machine learning sense. 
     
-    One reason why is the sheer size of the pre-trained model. The time (weeks or months) and computing costs of fully retraining it would be prohibitive to all but the largest organizations. Further, any significant retraining runs the risk of inadvertently losing some of ChatGPT's powerful capabilities.  
+    One reason why is the sheer size of the pre-trained model. The time (weeks or months) and computing costs of fully retraining it would be prohibitive to all but the largest organizations. Further, any significant retraining would run the risk of inadvertently losing some of ChatGPT's powerful capabilities.  
 
     Instead, with GPT-3, you start with the base model and feed it your domain-specific content in the form of questions and answers. Making matters easier, the model itself can create the questions and answers based off of your content. The model then runs in the background, seeking to maximize its ability to answer correctly by updating some of the model’s parameters (see discussion of neural networks below).  When complete, it creates a proprietary version of the model for future use.  
 
-The second and third approaches above use a technique known as “in-context” learning. The key difference is that the third approach tailors the model to your information and produces a reusable customized model (more on this later). With approach two, the base model is used unchanged and the model retains no "memory" of the injected content, outside of the current session.  
+The second and third approaches are not mutually exclusive. The key difference is that the third approach tailors the model to your information and produces a reusable customized model (more on this later). With approach two, the base model is used unchanged and the model retains no "memory" of the injected content, outside of the current session.  
 
 ## Contextual Embeddings: 4,000 Shades of Meaning 
 When ChatGPT receives a question and other content as input, it first maps each word or word fragment to  a unique numerical identifier called a token.  With ChatGPT, each token represents approximately 0.75 words.  (The math is important due to usage limits on ChatGPT.)
@@ -106,10 +106,10 @@ Below is an example of a question and response within the interface:
 
 After fine tuning and creating a proprietary version of the base model, I found that my new version of ChatGPT could answer questions based off of the newly ingested domain-specific content, even without added context in the prompt.  However, the answers were much less specific than when context was attached, as in approach two.
 
-As a result, it made sense to combine the two approaches -- fine tuning a custom model yet still providing best-fit context in the prompt.  
+Next, I combined the two approaches -- fine tuning a custom model while addding best-fit context in the prompt.  
 
-Importantly, custom models can be fine tuned again and again. Over time, repeated fine tuning will likely get the custom model closer to producing your desired output, especially with regard to style and tone and rooting out incorrect or otherwise undesirable responses.     
-
+It is important to note that fine tuning does not create a new store of information in the model.  In fine tuning, you feed the model perhaps 100-200 examples, whereas the base model has been trained on hundreds of millions of documents.  At best, it appears that fine tuning can adjust the model a bit to your domain area's terminology and specific task instructions. To get responses aligned closely with your domain content, you will need to include related context in the prompt.      
+    
 ## The ChatGPT Ecosystem 
 OpenAI was founded in 2015 by a group that includes Elon Musk, with Microsoft as an investor and key partner.  
 
@@ -139,11 +139,10 @@ For added control and security, organizations can purchase GPT-3 licenses for on
 ## Bottom line
 ChatGPT is a disruptive technology, a potential game changer. 
 
-Companies should start by considering its potential impact and identifying possible use cases.  How might these models disrupt your industry? Where can they be leveraged to dramatically improve knowledge management, customer service or functional processes?  
+Companies should start by considering its potential strategic impact and by identifying possible use cases.  How might these models disrupt your industry? Where can they be leveraged to dramatically improve knowledge management, customer service or functional processes?  
 
 Organizations can experiment with ChatGPT by developing low-risk prototypes in sandboxed environments. The process will give rise to many questions about restricting or sanitizing inputs, processing domain-specific content, dealing with limitations of the models (e.g., serving up incorrect information), fine tuning, hosting and security. 
 
-It's important to note that ChatGPT-like models are far from being black boxes that operate as autonomous machines. In fact, as a recent McKinsey [report](https://www.mckinsey.com/capabilities/quantumblack/our-insights/generative-ai-is-here-how-tools-like-chatgpt-could-change-your-business) says, "In many cases, they are most powerful in combination with humans, augmenting their capabilities and enabling them to get work done faster and better."  
+It's important to note that ChatGPT-like models are far from being black boxes that operate as autonomous machines. In fact, as a recent McKinsey [report](https://www.mckinsey.com/capabilities/quantumblack/our-insights/generative-ai-is-here-how-tools-like-chatgpt-could-change-your-business) notes, "In many cases, they are most powerful in combination with humans, augmenting their capabilities and enabling them to get work done faster and better."  
 
-Some liken their use to having an army of interns at your side. The interns are super fast, incredibly productive and very smart -- but also overconfident and inexperienced. 
-They need supervision, someone who can catch rookie errors. With that caveat, they could make your lawyers, software engineers, service reps and other subject matter experts far more effective and efficient.  
+Some liken their use to having an army of interns at your side. The interns are super fast, incredibly productive and very smart -- but also overconfident and inexperienced. They need supervision, someone who can catch errors. With that caveat, they could make your lawyers, software engineers, service reps and other subject matter experts -- and your organization overall -- far more effective and efficient.  
