@@ -141,7 +141,7 @@ ChatGPT is a disruptive technology, a potential game changer.
 
 Companies should start by considering its potential strategic impact and by identifying possible use cases.  How might these models disrupt your industry? Where can they be leveraged to dramatically improve knowledge management, customer service or functional processes?  
 
-Organizations can experiment with ChatGPT by developing low-risk prototypes in sandboxed environments. The process will give rise to many questions about restricting or sanitizing inputs, processing domain-specific content, dealing with limitations of the models (e.g., serving up incorrect information), fine tuning, hosting and security. 
+Organizations can experiment with ChatGPT by developing low-risk prototypes in sandboxed environments. The process will give rise to many questions about restricting or sanitizing inputs, curating domain-specific content, dealing with limitations of the models (e.g., serving up incorrect information), fine tuning, hosting and security. 
 
 It's important to note that ChatGPT-like models are far from being black boxes that operate as autonomous machines. In fact, as a recent McKinsey [report](https://www.mckinsey.com/capabilities/quantumblack/our-insights/generative-ai-is-here-how-tools-like-chatgpt-could-change-your-business) notes, "In many cases, they are most powerful in combination with humans, augmenting their capabilities and enabling them to get work done faster and better."  
 
