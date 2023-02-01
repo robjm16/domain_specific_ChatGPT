@@ -106,11 +106,11 @@ Below is an example of a question and response within the interface:
 
 After fine tuning and creating a proprietary version of the base model, I found that my new version of ChatGPT could answer questions based off of the newly ingested domain-specific content, even without added context in the prompt.  However, the answers were much less specific than when context was attached, as in approach two.
 
-Next, I combined the two approaches -- fine tuning a custom model while addding best-fit context in the prompt.  
+Next, I combined the two approaches -- fine tuning a custom model while adding best-fit context in the prompt.  
 
-This seemed to work at least as well as approach one (context added but no fine tuning).  But further experimentation and testing would be required to determine if, in my case, fine tuning added extra value.  
+This seemed to work at least as well as approach one (context added but no fine tuning).  But further experimentation and testing would be needed to determine if, in my case, fine tuning added extra value.  
 
-It is important to note that fine tuning does not create a new store of information in the model.  In fine tuning, you typically feed the model hundreds of examples, whereas the base model has been trained on hundreds of millions of documents.  At best, it appears that fine tuning can tailor the model to your domain area's terminology and specific task instructions. Fine tuning can also work well on very specific classification exercises.  However, to get responses aligned closely with your domain content in a question-and-answer model, you should continue to inject related context in the prompt.      
+It is important to note that fine tuning does not create a new store of information in the model.  In fine tuning, you typically feed the model hundreds of examples, whereas the base model has been trained on hundreds of millions of documents.  At best, it appears that fine tuning can adjust the model to some degree to your domain area's terminology and specific task instructions. Fine tuning can also work well on very specific classification exercises.  However, to align responses closely with domain content in a question-and-answer model, you should continue to inject the domain content into the prompt.      
     
 ## The ChatGPT Ecosystem 
 OpenAI was founded in 2015 by a group that includes Elon Musk, with Microsoft as an investor and key partner.  
