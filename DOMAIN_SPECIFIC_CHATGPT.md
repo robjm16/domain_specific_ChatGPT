@@ -1,6 +1,6 @@
 # Leveraging ChatGPT for <br> Business and Organizational Purposes    
 
-Since its introduction in November 2022, ChatGPT has captivated the world by answering questions on virtually any subject in human-like fashion.  Not to mention by composing poems in seconds. Or writing computer code based on plain language instructions.  
+Since its launch in November 2022, ChatGPT has captivated the world by answering questions on virtually any subject in human-like fashion.  Not to mention its ability  to compose poems in seconds. Or write computer code based on plain language instructions.  
 
 ChatGPT will no doubt have a huge impact on the public -- as well as on companies and other institutions.
 
@@ -108,7 +108,9 @@ After fine tuning and creating a proprietary version of the base model, I found 
 
 Next, I combined the two approaches -- fine tuning a custom model while addding best-fit context in the prompt.  
 
-It is important to note that fine tuning does not create a new store of information in the model.  In fine tuning, you feed the model perhaps 100-200 examples, whereas the base model has been trained on hundreds of millions of documents.  At best, it appears that fine tuning can adjust the model a bit to your domain area's terminology and specific task instructions. To get responses aligned closely with your domain content, you will need to include related context in the prompt.      
+This seemed to work at least as well as approach one (context added but no fine tuning).  But further experimentation and testing would be required to determine if, in my case, fine tuning added extra value.  
+
+It is important to note that fine tuning does not create a new store of information in the model.  In fine tuning, you typically feed the model hundreds of examples, whereas the base model has been trained on hundreds of millions of documents.  At best, it appears that fine tuning can tailor the model to your domain area's terminology and specific task instructions. Fine tuning can also work well on very specific classification exercises.  However, to get responses aligned closely with your domain content in a question-and-answer model, you should continue to inject related context in the prompt.      
     
 ## The ChatGPT Ecosystem 
 OpenAI was founded in 2015 by a group that includes Elon Musk, with Microsoft as an investor and key partner.  
