@@ -24,7 +24,7 @@ To demonstrate how this might work, I built a simple domain-specific [chatbot](h
 
 Through a process described more fully below, the investment outlook information was fed into ChatGPT and became the basis for responses to questions such as: "What does Goldman see happening with inflation in 2023?" and "What is the outlook for the bond market?" 
 
-Most of the [my code](https://github.com/robjm16/domain_specific_ChatGPT) was adapted from OpenAI's [cookbook](https://github.com/openai/openai-cookbook) of code examples for working with ChatGPT.  
+Most of the [my code]([https://github.com/robjm16/domain_specific_ChatGPT](https://github.com/robjm16/domain_specific_ChatGPT/blob/main/domain_specific_chatbot_prompt_engineering_and_fine_tuning_GITHUBFINAL.ipynb)) was adapted from OpenAI's [cookbook](https://github.com/openai/openai-cookbook) of code examples for working with ChatGPT.  
 
 Below is an overview of what I discovered through the development process and related research. 
 
