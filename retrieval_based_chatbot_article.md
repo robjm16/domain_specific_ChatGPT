@@ -83,7 +83,7 @@ Output:
  'total_vector_count': 0}
 ~~~
 
-These are the core methods provided by the Pinecone API.  In my program, I crafted a series of functions specifically designed to calculate and upload (or "upsert") vectors, and retrieve the appropriate content sections (based on their similarity to the user's question). 
+These are the core methods provided by the Pinecone API.  In my program, I added a series of functions specifically designed to calculate and upload (or "upsert") vectors, and retrieve the appropriate content sections (based on their similarity to the user's question). 
 
 ~~~python
 def compute_doc_embeddings(df):
@@ -165,8 +165,6 @@ def fetch_embeddings_from_pinecone(df, pinecone_client):
 ~~~
 
 ### Question/Answering via OpenAI, Pinecone and Gradio 
-
-#### Initializing the Interface
 Having pre-processed the text, created a Pinecone index, and computed and loaded the document's embeddings on a paragraph-by-paragraph basis into our vector database, we can move to the final section of code and related functions. This snippet launches the interface, which invokes the **'answer_query_with_context()'** and related functions (described further below).  The interface is built with Python's Gradio library, which can be used to demo machine learning applications.  
 
 ~~~python
@@ -297,7 +295,7 @@ def construct_prompt(question, df):
 ~~~
 
 
-Here is a screenshot of the chatbot's interface:  
+Finally, here is a screenshot of the chatbot's interface:  
 
 ![Chatbot Interface](interface_example.png)
 
