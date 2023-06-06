@@ -296,10 +296,10 @@ def construct_prompt(question, df):
     return full_prompt
 ~~~
 
-And here is a screenshot of the simple interface:  
+Here is a screenshot of the chatbot's interface:  
 
 ![Chatbot Interface](interface_example.png)
 
 
 ### Conclusion  
-Domain-specific chatbots are poised to  revolutionize the way companies and other organizations manage knowledge and engage with customers. Efficiently scaling such chatbots is a key consideration.  Vector databases can play an instrumental role, helping companies to store, query, manage and scale vectors to accommodate their expansive and continually growing knowledge bases.    
+Domain-specific chatbots are poised to  revolutionize the way companies and other organizations manage knowledge and engage with customers. Efficiently scaling such chatbots is a key consideration.  Vector databases can play an instrumental role, helping companies to store, query and manage vectors to accommodate their expansive and continually growing knowledge bases.    
