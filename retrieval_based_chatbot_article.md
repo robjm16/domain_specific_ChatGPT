@@ -4,7 +4,7 @@ A growing number of companies across industries have announced plans to customiz
 
 Tailoring ChatGPT for such domain-specific applications can be achieved using an approach called retrieval-based augmentation. With this method, when a question is posed, relevant content from the company's knowledge base is identified and appended to the chatbot's input prompt as context. Following this, the chatbot is tasked with crafting a response based on the given context. 
 
-This article focuses on the central role of word vectors and vector databases in the retrieval-based approach. It includes sample code for integrating a vector database into a retrieval-based model. The complete program can be found [here]() **UPDATE**.  
+This article focuses on the central role of word vectors and vector databases in the retrieval-based approach. It includes sample code for integrating a vector database into a retrieval-based model. The complete program can be found [here](https://github.com/robjm16/domain_specific_ChatGPT/blob/main/retrieval_augmented_chatbot_w_vectordb_FINAL_3_git_version.ipynb).  
 
 (Another customization method is to retrain a bespoke version of ChatGPT on an organization's knowledge base. However, retraining brings substantial costs and risks, and lacks the precision offered by retrieval-based augmentation. Nevertheless, retrieval-based augmentation and retraining can be seen as complementary processes.)
 
