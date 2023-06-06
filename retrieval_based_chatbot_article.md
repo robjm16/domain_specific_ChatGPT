@@ -184,11 +184,11 @@ demo.launch()
 ~~~
 
 This code initiates the following workflow (see functions further below):   
-1.)  Retrieve embeddings for the user query (**'get_query_embedding'** which in turn invokes **'get_embedding()'**) via an OpenAI API call.  
-2.)  Compute vector similarities between the query and the document sections (**'vector_similarity()'**) using a Pinecone API call.  
-3.)  Arrange the document sections in order of their similarity to the query (**'order_doc_section_by_query_similarity()'**).  
-4.)  Construct a prompt for ChatGPT that includes the user query, the document sections most closely related to the query and instructions for how to respond (**'construct_prompt()'**).    
-5.)  Generate ChatGPT's response to the query (via **'answer_query_with_context()'**) and display it.
+1.)   Retrieve embeddings for the user query (**'get_query_embedding'** which in turn invokes **'get_embedding()'**) via an OpenAI API call.  
+2.)   Compute vector similarities between the query and the document sections (**'vector_similarity()'**) using a Pinecone API call.  
+3.)   Arrange the document sections in order of their similarity to the query (**'order_doc_section_by_query_similarity()'**).  
+4.)   Construct a prompt for ChatGPT that includes the user query, the document sections most closely related to the query and instructions for how to respond (**'construct_prompt()'**).    
+5.)   Generate ChatGPT's response to the query (via **'answer_query_with_context()'**) and display it.
 
 ~~~python
 def get_query_embedding(text):
@@ -295,6 +295,7 @@ def construct_prompt(question, df):
 
     return full_prompt
 ~~~
+
 
 Here is a screenshot of the chatbot's interface:  
 
