@@ -1,5 +1,5 @@
 ## Scaling Company Chatbots with Vector Databases
-#### 1. Introduction
+#### Introduction
 A growing number of companies across industries have announced plans to customize ChatGPT for their business needs. The goal is to leverage ChatGPT's extraordinary natural language capabilities while focusing its power on company-specific documents and information. An insurance company, for example, might want to give service reps the ability to find answers to customer questions via ChatGPT -- but drawing information exclusively from official policy documents. 
 
 Tailoring ChatGPT for such domain-specific applications can be achieved using an approach called retrieval-based augmentation. With this method, when a question is posed, relevant content from the company's knowledge base is sourced and appended to the chatbot's input prompt as context. Following this, the chatbot is tasked with crafting a response based on the given context. 
@@ -8,19 +8,19 @@ This article focuses on the central role of word vectors and vector databases in
 
 (Another customization method is to retrain a bespoke version of ChatGPT on an organization's knowledge base. However, retraining brings substantial costs and risks, and lacks the precision offered by retrieval-based augmentation. Nevertheless, retrieval-based augmentation and retraining can be seen as complementary processes.)
 
-#### 2. Word Vectors
+#### Role of Word Vectors
 Large language models like ChatGPT use word vectors (also known as "embeddings") to interpret queries and generate responses. Word vectors provide a numerical representation of words or phrases. For example, the word "queen" could be expressed through a sequence of numbers that illustrate its semantic proximity to words like "king," "female," and "leader." A single word vector may encompass thousands of dimensions, encapsulating context and syntax.
 
 Retrieval-based chatbots employ word vectors to comprehend user questions, identify segments in company-supplied documents that bear the closest semantic relationship, and constrain ChatGPT's replies to information found within the chosen content segments.
 
-#### 3. Vector Databases: Scaling  Retrieval-Based Chatbots
-A few months ago, I developed a basic retrieval-based chatbot ([here]()) **UPDATE LINK**, without incorporating a vector database. The source content used was an amalgamation of the 2023 investment outlook summaries from leading Wall Street banks, combined into a single document with approximately 4,000 words.
+#### Vector Databases: Scaling  Retrieval-Based Chatbots
+A few months ago, I developed a basic retrieval-based chatbot ([article here](https://github.com/robjm16/domain_specific_ChatGPT/blob/main/DOMAIN_SPECIFIC_CHATGPT.md)) , without incorporating a vector database. The source content used was an amalgamation of the 2023 investment outlook summaries from leading Wall Street banks, combined into a single document with approximately 4,000 words.
 
 Questions like "What will happen to the stock market in 2023?" or "What is the outlook for oil prices?" were addressed by initially pinpointing document sections that closely corresponded semantically with each question, followed by guiding ChatGPT to construct responses from these sections.  However, the initial implementation  stored word vectors in a standard Python dataframe. While this method may be viable for smaller documents, it falls short as a practical solution for storing and querying word vectors across hundreds or thousands of documents.
 
 This is where vector databases come into play. Purpose-built to handle high-dimensional vector data, vector databases are fine-tuned for efficiently storing and querying word embeddings. In the realm of retrieval-based chatbots, this functionality allows for the speedy identification of the content most related to a user's query, even when navigating a sizable knowledge base.
 
-### 3.Pinecone Integration 
+### Pinecone Integration 
 The updated version of my program is integrated with Pinecone, a leading cloud-based vector database provider. The program's workflow has three key steps:
 
 - First, the program loads content from a Word document into a Python dataframe and segments it into paragraph sections, respecting certain length limitations.
@@ -29,7 +29,7 @@ The updated version of my program is integrated with Pinecone, a leading cloud-b
 
 Given the focus of this article, I will skip the first section and focus on the last two sections, which deal with vector database integration.  
 
-The initial step is to sign up for Pinecone's [free tier]() **UPDATE**, which is adequate for a basic project demo. After registration, you should generate an API key for your project on Pinecone's site.
+The initial step is to sign up for Pinecone's [free tier](https://www.pinecone.io/pricing/), which is adequate for a basic project demo. After registration, you should generate an API key for your project on Pinecone's site.
 
 There are two ways to access Pinecone services: through its web console or via its API. The console enables the upload, query, and deletion of vector databases, along with the retrieval of specific vectors by vector ID. However, for the purposes of this article, we will connect to Pinecone through Python and the API.
 
@@ -164,7 +164,7 @@ def fetch_embeddings_from_pinecone(df, pinecone_client):
     return document_embeddings    
 ~~~
 
-### 4.  Question/Answering via OpenAI, Pinecone and Gradio 
+### Question/Answering via OpenAI, Pinecone and Gradio 
 
 #### Initializing the Interface
 Having pre-processed the text, created a Pinecone index, and computed and loaded the document's embeddings on a paragraph-by-paragraph basis into our vector database, we can move to the final section of code and related functions. This snippet launches the interface, which invokes the **'answer_query_with_context()'** and related functions (described further below).  The interface is built with Python's Gradio library, which can be used to demo machine learning applications.  
@@ -298,8 +298,8 @@ def construct_prompt(question, df):
 
 And here is a screenshot of the simple interface:  
 
-![Chatbot Interface](https://github.com/robjm16/samples/blob/master/Interface_pic.JPG)
+![Chatbot Interface](interface_example.png)
 
 
-### 7. Conclusion  
+### Conclusion  
 Domain-specific chatbots are poised to  revolutionize the way companies and other organizations manage knowledge and engage with customers. Efficiently scaling such chatbots is a key consideration.  Vector databases can play an instrumental role, helping companies to store, query, manage and scale vectors to accommodate their expansive and continually growing knowledge bases.    
