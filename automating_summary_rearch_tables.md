@@ -70,7 +70,8 @@ def build_prompt(use_case):
     A. Can Large Language Models (LLMs) be used for {use_case}? Answer Yes or No.
     B. If yes, how can LLMs be utilized for {use_case}? Answer in 15 words or less. If No, say NA.
     C. What other machine learning algorithms could be suitable for {use_case}? Name 1-3 algorithms and very briefly expain each (10 words each maximum).
-
+    ---
+    """
     return prompt
 ```
 Here is an example of the fully constructed prompt:
